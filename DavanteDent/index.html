@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DavanteDent - Gestión de Citas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- CABECERA -->
+    <header>
+        <img src="img/logo.png" alt="Logo DavanteDent" id="logo">
+        <h1>Gestión de Citas - Clínica DavanteDent</h1>
+    </header>
+
+    <!-- FORMULARIO DE CITAS -->
+    <section id="formulario-citas">
+        <h2>Nueva / Modificar Cita</h2>
+        <form id="formCita">
+            <!-- dentro del form, justo tras id="formCita" -->
+        <input type="hidden" id="citaId" name="citaId" value="">
+            <fieldset>
+                <legend>Datos de la cita</legend>
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" name="fecha" required>
+                
+                <label for="hora">Hora:</label>
+                <input type="time" id="hora" name="hora" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos del paciente</legend>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="nacimiento" name="nacimiento" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Observaciones</legend>
+                <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+            </fieldset>
+
+            <div class="acciones-formulario">
+                <button type="submit" id="btnGuardar">Guardar cita</button>
+                <button type="reset" id="btnLimpiar">Limpiar</button>
+            </div>
+        </form>
+    </section>
+
+    <!--Buscador de citas-->
+    <section id="buscador-citas" style="margin-bottom: 1rem;">
+        <label for="inputBuscar">Buscar cita:</label>
+        <input type="search" id="inputBuscar" placeholder="Buscar por nombre, apellidos, DNI o teléfono">
+    </section>
+
+
+    <!-- TABLA DE CITAS -->
+    <section id="tabla-citas">
+        <div id="paginacion" style="display:flex;justify-content:center;gap:0.5rem;margin-top:1rem;">
+        <!-- Los botones se generarán desde JS -->
+        </div>
+        <h2>Listado de citas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Fecha Nac.</th>
+                    <th>Observaciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+                <tr id="filaVacia">
+                    <td colspan="10">Dato vacío</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>Clínica DavanteDent · Calle Salud nº 25 · Tel: 912 345 678 · info@davantedent.com</p>
+    </footer>
+    <script src="/js/storage.js"></script>
+    <script src="/js/citas.js"></script>
+    <script src="/js/validaciones.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+</html>
